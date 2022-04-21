@@ -30,7 +30,11 @@ function creaGriglia(){
     for (let index = 0; index < numeri.length; index++) {
         const numero = numeri[index];
         const quadrato = document.createElement('div')
+        quadrato.className = 'quadrato';
         quadrato.textContent = numero;
+        quadrato.addEventListener('click', function () {
+            quadrato.classList.add('bg-blue')
+        })
         griglia.appendChild(quadrato);
     }
     console.log(numeri);
