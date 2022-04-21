@@ -17,15 +17,22 @@ for (let index = 0; index < tastiDifficolta.length; index++) {
     tasto.addEventListener('click', function (evento) {
         const livelloDifficolta = tasto.id;
         alert(`Difficoltà ${livelloDifficolta}`)
-        creaGriglia();
+        creaGriglia(livelloDifficolta);
     })
 }
 
-function creaGriglia(){
+function creaGriglia(difficolta = 'easy'){
+    griglia.innerHTML = ('');
+
+    let  max = 100; 
+    if (difficolta === 'easy') max = 100;
+    if (difficolta === 'normal') max = 81;
+    if (difficolta === 'hard') max = 49;
+    
     const numeri = [];
     //math.random
     while (numeri.length < 100) {
-        numeri.push(Math.floor(Math.random() * 100 + 1))
+        numeri.push(Math.floor(Math.random() * max + 1))
     }
     for (let index = 0; index < numeri.length; index++) {
         const numero = numeri[index];
@@ -40,4 +47,4 @@ function creaGriglia(){
     console.log(numeri);
 }
 
-creaGriglia()
+creaGriglia('easy')
