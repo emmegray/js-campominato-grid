@@ -16,31 +16,26 @@
                 <div class="col-8">
                     <h2>Campo Minato 💣</h2>
                 </div>
-                    <div class="col-4">
+                    <div class="col-4 form-floating">
                         <div class="form-floating">
                             <select class="form-select" id="difficulty">
-                                <option value="1">
-                                    <a class="dropdown-item" href="#" id="easy">Facile</a></option>
-                                <option value="2">
-                                    <a class="dropdown-item" href="#" id="normal">Normale</a></option>
-                                <option value="3">
-                                    <a class="dropdown-item" href="#" id="hard">Difficile</a></option>
+                                <option value="easy">Facile</option>
+                                <option value="normal">Normale</option>
+                                <option value="hard">Difficile</option>
                             </select>
-                            <label for="form-difficulty">Selezione una difficoltà:</label>
-                        </div>
-                    <div>
-                        <div>
-                            <button class="btn btn-danger mt-2 difficulty" type="button">
+                            <label for="difficulty">Selezione una difficoltà:</label>
+                            <button class="btn btn-danger mt-2 difficulty" id="play" type="button">
                                 Play!
                             </button>
                         </div>
+                    <div>
             </div>
         </div>
     </header>
 
     <main>
         <div class="container d-flex justify-content-center align-items-center h-100">
-            <div class="griglia p-4">
+            <div class="griglia p-4 easy">
             </div>
         </div>
     </main>

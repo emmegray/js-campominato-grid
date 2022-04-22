@@ -9,29 +9,40 @@
 2. Quando l'utente clicca sulle celle quelle cambiano colore di azzurro
 */
 
-const tastiDifficolta = document.querySelectorAll(".difficulty > li > a");
+const selezioneDifficolta = document.querySelector("#difficulty");
 const griglia = document.querySelector('.griglia');
+const tasto = document.querySelector('#play');
 
-for (let index = 0; index < tastiDifficolta.length; index++) {
-    const tasto = tastiDifficolta[index];
-    tasto.addEventListener('click', function (evento) {
-        const livelloDifficolta = tasto.id;
-        alert(`Difficoltà ${livelloDifficolta}`)
-        creaGriglia(livelloDifficolta);
-    })
-}
+tasto.addEventListener('click', function (evento) {
+    const livelloDifficolta = selezioneDifficolta.value;
+    alert(`Difficoltà ${livelloDifficolta}`)
+    creaGriglia(livelloDifficolta);
+})
+
 
 function creaGriglia(difficolta = 'easy'){
+    if (griglia.classList.contains('easy'))griglia.classList.replace('easy', difficolta)
+    if (griglia.classList.contains('normal'))griglia.classList.replace('normal', difficolta)
+    if (griglia.classList.contains('hard'))griglia.classList.replace('hard', difficolta)
+
     griglia.innerHTML = ('');
 
+    let numeroDiCelle = 25;
     let  max = 100; 
-    if (difficolta === 'easy') max = 100;
-    if (difficolta === 'normal') max = 81;
-    if (difficolta === 'hard') max = 49;
+    if (difficolta === 'easy') {
+        max = 100;
+        numeroDiCelle = 25;
+    }
+    if (difficolta === 'normal') {
+        max = 81;
+        numeroDiCelle = 64;
+    }
+    if (difficolta === 'hard') {
+        max = 49; numeroDiCelle = 100;
+    }
     
     const numeri = [];
-    //math.random
-    while (numeri.length < 100) {
+    while (numeri.length < numeroDiCelle) {
         numeri.push(Math.floor(Math.random() * max + 1))
     }
     for (let index = 0; index < numeri.length; index++) {
